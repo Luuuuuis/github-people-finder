@@ -45,20 +45,22 @@
         </div>
       </div>
     </div>
-    <footer class="footer fixed-bottom">
-      <!-- Copyright -->
-      <div class="footer-copyright text-center">
-        <a
-          href="https://github.com/Luuuuuis/github-people-finder"
-          id="footer-social-github"
-          ><i class="fab fa-github"></i
-        ></a>
-        <a href="https://twitter.com/realluuuuuis" id="footer-social-twitter"
-          ><i class="fab fa-twitter"></i
-        ></a>
-      </div>
-      <!-- Copyright -->
-    </footer>
+    <div id="footer">
+      <footer class="footer fixed-bottom">
+        <!-- Copyright -->
+        <div class="footer-copyright text-center">
+          <a
+            href="https://github.com/Luuuuuis/github-people-finder"
+            id="footer-social-github"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="https://twitter.com/realluuuuuis" id="footer-social-twitter"
+            ><i class="fab fa-twitter"></i
+          ></a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+    </div>
   </div>
 </template>
 
@@ -110,6 +112,10 @@ footer {
   text-decoration: none;
   font-size: 2rem;
   background-color: white;
+}
+
+#footer {
+  padding-top: 5rem;
 }
 
 #footer-social-github,
