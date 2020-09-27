@@ -1,9 +1,15 @@
 <template>
   <div v-if="info != null" class="card-deck">
-    <div v-for="inf in info" :key="inf.id">
+    <div v-for="inf in ordered" :key="inf.id">
       <div class="card">
         <div class="card-body d-flex flex-column">
-          <h5 class="card-title">{{ inf.name }}</h5>
+          <h5 class="card-title">
+            {{ inf.name }}
+            <span class="badge badge-light" id="badge"
+              >{{ inf.stargazers_count }}
+              <i class="far fa-star" style="color: gold"></i
+            ></span>
+          </h5>
           <p class="card-text">
             {{ getDescription(inf.description) }}
           </p>
@@ -61,6 +67,17 @@ export default {
       }
     },
   },
+  computed: {
+    ordered: function() {
+      // ordered by time desc -> last updated is first
+      if (this.info == null) {
+        return null;
+      }
+      return this.info.slice().sort(function(a, b) {
+        return new Date(b.updated_at) - new Date(a.updated_at);
+      });
+    },
+  },
 };
 </script>
 
@@ -69,5 +86,9 @@ export default {
   margin: 1rem;
   width: 20rem;
   height: 12rem;
+}
+
+#badge {
+  padding-bottom: 0.2rem;
 }
 </style>

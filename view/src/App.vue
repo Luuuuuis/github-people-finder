@@ -1,48 +1,64 @@
 <template>
-  <div id="app" class="container">
-    <div id="top">
-      <div id="headline">
-        <h1>Crazy github people finder</h1>
-      </div>
-      <div id="content">
-        <div id="input">
-          <form @submit.prevent="" class="form">
-            <div class="row justify-content-center">
-              <div class="col-auto">
-                <label for="user-input" class="sr-only">User</label>
-                <input
-                  v-model.lazy="user"
-                  id="user-input"
-                  placeholder="Username"
-                  class="form-control"
-                />
+  <div>
+    <div id="app" class="container">
+      <div id="top">
+        <div id="headline">
+          <h1>Crazy github people finder</h1>
+        </div>
+        <div id="content">
+          <div id="input">
+            <form @submit.prevent="" class="form">
+              <div class="row justify-content-center">
+                <div class="col-auto">
+                  <label for="user-input" class="sr-only">User</label>
+                  <input
+                    v-model.lazy="user"
+                    id="user-input"
+                    placeholder="Username"
+                    class="form-control"
+                  />
+                </div>
+                <div class="col-auto">
+                  <button type="submit" class="btn btn-primary">Search</button>
+                </div>
               </div>
-              <div class="col-auto">
-                <button type="submit" class="btn btn-primary">Search</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <div v-if="user != null">
-        <div id="user" class="padding">
-          <User :username="user" @loading="user_loading = $event"></User>
+            </form>
+          </div>
         </div>
 
-        <div id="repos" class="padding">
-          <Repos
-            :username="user"
-            @loading="repos_loading = $event"
-            class="d-flex justify-content-center"
-          ></Repos>
-        </div>
+        <div v-if="user != null">
+          <div id="user" class="padding">
+            <User :username="user" @loading="user_loading = $event"></User>
+          </div>
 
-        <div v-show="user_loading == true || repos_loading == true">
-          <Spinner></Spinner>
+          <div id="repos" class="padding">
+            <Repos
+              :username="user"
+              @loading="repos_loading = $event"
+              class="d-flex justify-content-center"
+            ></Repos>
+          </div>
+
+          <div v-show="user_loading == true || repos_loading == true">
+            <Spinner></Spinner>
+          </div>
         </div>
       </div>
     </div>
+    <footer class="footer fixed-bottom">
+      <!-- Copyright -->
+      <div class="footer-copyright text-center">
+        <a
+          href="https://github.com/Luuuuuis/github-people-finder"
+          id="footer-social-github"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a href="https://twitter.com/realluuuuuis" id="footer-social-twitter"
+          ><i class="fab fa-twitter"></i
+        ></a>
+      </div>
+      <!-- Copyright -->
+    </footer>
   </div>
 </template>
 
@@ -84,5 +100,28 @@ export default {
 
 .padding {
   padding-top: 20px;
+}
+
+footer {
+  position: fixed;
+  height: 3rem;
+  bottom: 0;
+  width: 100%;
+  text-decoration: none;
+  font-size: 2rem;
+  background-color: white;
+}
+
+#footer-social-github,
+#footer-social-twitter {
+  color: black;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  transition: 0.5s;
+}
+
+#footer-social-github:hover,
+#footer-social-twitter:hover {
+  color: dodgerblue;
 }
 </style>
