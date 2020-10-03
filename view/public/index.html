@@ -17,6 +17,10 @@
       integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
       crossorigin="anonymous"
     />
+    <script defer src="/__/firebase/7.22.0/firebase-app.js"></script>
+    <script defer src="/__/firebase/7.22.0/firebase-analytics.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
     <script
       data-ad-client="ca-pub-1826117255501341"
       async
@@ -50,19 +54,18 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-CHKJ2DTG47"
-    ></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+      document.addEventListener("DOMContentLoaded", function() {
+        firebase.analytics();
 
-      gtag("config", "G-CHKJ2DTG47");
+        try {
+          let app = firebase.app();
+        } catch (e) {
+          console.error(e);
+        }
+
+      });
+    </script>
     </script>
   </body>
 </html>
