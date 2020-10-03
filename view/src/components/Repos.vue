@@ -26,7 +26,7 @@
 </template>
 
 <script>
-const axios = require("axios");
+const axios = require("axios").default;
 
 export default {
   props: {
@@ -50,7 +50,11 @@ export default {
       this.info = null;
 
       axios
-        .get("https://api.github.com/users/" + this.username + "/repos")
+        .get(
+          "https://api.github.com/users/" +
+            this.username +
+            "/repos?sort=updated"
+        )
         .then((response) => {
           this.info = response.data;
         })
@@ -60,6 +64,9 @@ export default {
       this.$emit("loading", false);
     },
     getDescription(desc) {
+      if (desc == null) {
+        return null;
+      }
       if (desc.length > 87) {
         return desc.substring(0, 84).concat("...");
       } else {

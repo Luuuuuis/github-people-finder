@@ -47,7 +47,6 @@
     </div>
     <div id="footer">
       <footer class="footer fixed-bottom">
-        <!-- Copyright -->
         <div class="footer-copyright text-center">
           <a
             href="https://github.com/Luuuuuis/github-people-finder"
@@ -58,7 +57,6 @@
             ><i class="fab fa-twitter"></i
           ></a>
         </div>
-        <!-- Copyright -->
       </footer>
     </div>
   </div>

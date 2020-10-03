@@ -13,8 +13,10 @@
           <div id="facts">
             <div class="col">
               <h6>
-                <i class="fas fa-users"></i> {{ info.followers }} followers ●
-                {{ info.following }} following ●
+                <span v-if="info.type == 'User'">
+                  <i class="fas fa-users"></i> {{ info.followers }} followers ●
+                  {{ info.following }} following ●
+                </span>
                 <span v-if="info.location != null">
                   <i class="fas fa-map-marked-alt"></i>
                   {{ info.location }} ● </span
@@ -57,7 +59,7 @@
 </template>
 
 <script>
-const axios = require("axios");
+const axios = require("axios").default;
 export default {
   props: {
     username: String,
