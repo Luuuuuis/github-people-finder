@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="body">
     <div id="app" class="container">
       <div id="top">
         <div id="headline">
@@ -39,7 +39,7 @@
             ></Repos>
           </div>
 
-          <div v-show="user_loading == true || repos_loading == true">
+          <div v-show="user_loading === true || repos_loading === true">
             <Spinner></Spinner>
           </div>
         </div>
@@ -90,7 +90,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
   margin-top: 60px;
 }
 
