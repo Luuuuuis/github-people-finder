@@ -3,7 +3,7 @@
     <div id="app" class="container">
       <div id="top">
         <div id="headline">
-          <h1>Crazy github people finder</h1>
+          <h1>github people finder</h1>
         </div>
         <div id="content">
           <div id="input">
@@ -71,7 +71,7 @@ export default {
   name: "App",
   data() {
     return {
-      user: "Luuuuuis",
+      user: (document.location.pathname === "/" ? "Luuuuuis" : document.location.pathname.replace("/", "")),
       user_loading: false,
       repos_loading: false,
     };
