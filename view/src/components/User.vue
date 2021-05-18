@@ -13,7 +13,7 @@
           <div id="facts">
             <div class="col">
               <h6>
-                <span v-if="info.type == 'User'">
+                <span v-if="info.type === 'User'">
                   <i class="fas fa-users"></i> {{ info.followers }} followers ●
                   {{ info.following }} following ●
                 </span>
@@ -49,7 +49,7 @@
     </div>
   </div>
   <div v-else-if="err != null">
-    <div v-if="err.status == 404">
+    <div v-if="err.status === 404">
       <h1>This user doesn't exists :''(</h1>
     </div>
     <div v-else>
@@ -82,7 +82,7 @@ export default {
       this.info = null;
 
       axios
-        .get("https://api.github.com/users/" + this.username)
+          .get("https://api.github.com/users/" + this.username.replaceAll("/", ""))
         .then((response) => {
           this.info = response.data;
         })

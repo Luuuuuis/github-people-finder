@@ -52,7 +52,7 @@ export default {
       axios
         .get(
           "https://api.github.com/users/" +
-            this.username +
+            this.username.replaceAll("/", "") +
             "/repos?sort=updated"
         )
         .then((response) => {

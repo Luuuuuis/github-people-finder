@@ -71,7 +71,7 @@ export default {
   name: "App",
   data() {
     return {
-      user: (document.location.pathname === "/" ? "Luuuuuis" : document.location.pathname.replace("/", "")),
+      user: (document.location.pathname === "/" ? "Luuuuuis" : document.location.pathname.replaceAll('/', "")),
       user_loading: false,
       repos_loading: false,
     };
